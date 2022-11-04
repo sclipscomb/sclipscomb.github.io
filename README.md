@@ -44,7 +44,7 @@ Howdy. Welcome to my Arch Linux install documentation. Just like the nerds who c
       
       d.	Final step of the partitioning process is mounting the partitions themselves. The process for this is detailed below:
         
-        i.	Mounted the root volume with mount /dev/sda3 /mnt then created the mountpoint with mkdir /mnt/efi and mounted the EFI partition with mount /dev/sda1                 /mnt/efi
+        i.	Mounted the root volume with mount /dev/sda3 /mnt then created the mountpoint with mkdir /mnt/efi and mounted the EFI partition with mount /dev/sda1 /mnt/efi
         ii.	I then enabled the swap partition with swapon /dev/sda2
 
 8.	Now that partitions have been partitioned and mountpoints mounted, we can move onto installing packages. 
@@ -53,8 +53,8 @@ Howdy. Welcome to my Arch Linux install documentation. Just like the nerds who c
       
       b.	I then installed some essential Linux packages with pacstrap /mnt base linux linux-firmware nano openssh sudo
         
-            i.	At this point, the command failed due to corrupt/invalid downloaded packages, and I realized that I was using the wrong VMWare version, since I                     couldn’t create a snapshot.
-            ii.	After my realization, I used the command sudo pacman -Sy archlinux-keyring to update my keys and attempted to install my downloaded packages                         again. This time it worked.
+            i.	At this point, the command failed due to corrupt/invalid downloaded packages, and I realized that I was using the wrong VMWare version, since I couldn’t create a snapshot.
+            ii.	After my realization, I used the command sudo pacman -Sy archlinux-keyring to update my keys and attempted to install my downloaded packages again. This time it worked.
       
       c.	After running pacstrap again to download all my basic Linux files, I used the command genfstab -U /mnt >> /mnt/etc/fstab to generate a new file system               table, and then entered the new file system using arch-chroot /mnt. Finally, I was in my root directory!
 
