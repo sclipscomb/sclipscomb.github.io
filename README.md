@@ -110,7 +110,7 @@ Howdy. Welcome to my Arch Linux install documentation. Just like the nerds who c
 
 22.	After that I used ssh to access my class gateway using my given ip address and updated some apps running in the installation.
 
-      ![SSH SC](docs/assets/sysadmin_ssh_in_arch.png)
+      ![SSH SC](docs/assets/sysadmin_ssh_on_arch.png)
 
 23.	I then set some aliases in the console (which I also changed to be fish by default). Some of the ones I made were alias c=’clear’, alias ports=’netstat             -tulanp’, and alias meminfo=’free -m -l -t’
 
