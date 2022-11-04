@@ -31,16 +31,16 @@ Howdy. Welcome to my Arch Linux install documentation. Just like the nerds who c
         i.	This process was highly involved, so I wrote notes for each step in shorthand below:
           
           1.	Create new table with “o” command
-          2.	Create EFI partition with command “n”, then assign partition ID “1”, allow Arch to pick default first sector, set last sector to “+300M”                             (recommended is 260 MiB), then assign GUID code “EF00” to make EFI System Partition
-          3.	Create swap partition using “n” command, assign partition ID “2”, allow Arch to pick default first sector, set last sector to “+4G” (recommended                     is 4GiB), then assign GUID code 8200 to make Linux Swap Partition
-          4.	Create root partition using command “n”, assign partition ID “3”, allow Arch to pick default first sector, also allow Arch to pick default last                     sector (uses remaining disk space), then assign GUID code 8300 to make Linux Filesystem Partition
+          2.	Create EFI partition with command “n”, then assign partition ID “1”, allow Arch to pick default first sector, set last sector to “+300" (recommended is 260 MiB), then assign GUID code “EF00” to make EFI System Partition
+          3.	Create swap partition using “n” command, assign partition ID “2”, allow Arch to pick default first sector, set last sector to “+4G” (recommended is 4GiB), then assign GUID code 8200 to make Linux Swap Partition
+          4.	Create root partition using command “n”, assign partition ID “3”, allow Arch to pick default first sector, also allow Arch to pick default last sector (uses remaining disk space), then assign GUID code 8300 to make Linux Filesystem Partition
           5.	Finally, write created partition table to disk using “w” command
       
       c.	Next step of the partitioning process was to format the newly created partitions.
         
         i.	First, I formatted partition sda3 into the ext4 file system using the command mkfs.ext4 /dev/sda3
         ii.	Second, I setup the swap partition with the command mkswap /dev/sda2 
-        iii.	Thirdly, I formatted the EFI partition using the command mkfs.fat -F32 /dev/sda1, which formatted it into FAT32
+        iii. Thirdly, I formatted the EFI partition using the command mkfs.fat -F32 /dev/sda1, which formatted it into FAT32
       
       d.	Final step of the partitioning process is mounting the partitions themselves. The process for this is detailed below:
         
@@ -87,10 +87,10 @@ Howdy. Welcome to my Arch Linux install documentation. Just like the nerds who c
                   127.0.0.1	localhost
                   ::1		localhost
                   127.0.1.1	vm1
-            iii.	Following the setup of the network hosts, I attempted to setup my network card. It seems like “enp0s3” is the assigned network interface name for                   VirtualBox network adapters, which also has the ethernet prefix, so I set it up as such.
-            iv.	I ran cp /etc/netctl/examples/ethernet-static /etc/netctl/enp0s3 to generate the network card, then edited the profile and changed the needed line                   to “Interface=enp0s3”
+            iii.	Following the setup of the network hosts, I attempted to setup my network card. It seems like “enp0s3” is the assigned network interface name for VirtualBox network adapters, which also has the ethernet prefix, so I set it up as such.
+            iv.	I ran cp /etc/netctl/examples/ethernet-static /etc/netctl/enp0s3 to generate the network card, then edited the profile and changed the needed line to “Interface=enp0s3”
             v.	I then enabled the network card with systemctl enable dhcpcd and systemctl start dhcpcd
-            vi.	After enabling and starting the network card, I rebooted back into Arch and signed in as root, then attempted to download the packages again. This                   time it worked!
+            vi.	After enabling and starting the network card, I rebooted back into Arch and signed in as root, then attempted to download the packages again. This time it worked!
       
       b.	I also needed to re-add my user since I reverted to an old snapshot, so I went ahead and created new user “sam”, set his password, then uncommented                 %wheel in the visudo and added “sam” to the “wheel” group to give him sudo privileges using sudo usermod -aG wheel sam
 
