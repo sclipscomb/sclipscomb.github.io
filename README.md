@@ -106,12 +106,21 @@ Howdy. Welcome to my Arch Linux install documentation. Just like the nerds who c
 
 21.	I made a new user account for codi and assigned it sudo privileges, along with setting the password to the password specified in Harvey.
 
+      ![SSH SC](docs/assets/arch_pic_shows_users.png)
+
 22.	After that I used ssh to access my class gateway using my given ip address and updated some apps running in the installation.
 
+      ![SSH SC](docs/assets/sysadmin_ssh_in_arch.png)
+
 23.	I then set some aliases in the console (which I also changed to be fish by default). Some of the ones I made were alias c=’clear’, alias ports=’netstat             -tulanp’, and alias meminfo=’free -m -l -t’
+
+      ![SSH SC](docs/assets/installed_fish.png)
+      ![SSH SC](docs/assets/arch_aliased.png)
 
 24.	On top of that, I changed the desktop background to the infamous weekly event known as “Fiber Optic Friday.” If you are reading this in the future, ask Codi         about Fiber Optic Friday, it’s his favorite day of the week.
 
 25.	Last thing to do was change the colors on my terminal. I decided on the Fallout-esque color combo of green on black, which I implemented by nanoing into             /bash.bashrc and adding the line “export PS1="\e[0;32m[\u@\h \W]\$ \e[m " at the bottom.
+
+      ![SSH SC](docs/assets/arc_fiberopticfriday_colorchange.png)
 
 26.	That’s it! Arch Linux is fully setup! Never thought I’d see the day.
